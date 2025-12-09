@@ -1,0 +1,176 @@
+/* Importación de Fuentes (ya incluida en HTML, pero aquí como recordatorio) */
+/* font-family: 'Montserrat', sans-serif; para títulos */
+/* font-family: 'Roboto', sans-serif; para cuerpo de texto */
+
+/* Variables de Color */
+:root {
+    --color-dark: #121212;
+    --color-accent: #ff4757; /* Rojo vibrante */
+    --color-light: #f5f6fa;
+    --color-text-muted: #aaa;
+}
+
+/* Base */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Header/Navegación */
+header {
+    background-color: #1f1f1f;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+nav h1 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color-accent);
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--color-light);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--color-accent);
+}
+
+/* Sección Héroe */
+#hero {
+    background: url('hero_background.jpg') no-repeat center center/cover; /* Reemplaza con tu imagen de fondo */
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero-content {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+#hero h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    color: var(--color-accent);
+    margin-bottom: 10px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: var(--color-light);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #ff6b81;
+    transform: translateY(-2px);
+}
+
+/* Sección de Juegos */
+#juegos {
+    text-align: center;
+}
+
+#juegos h3 {
+    font-size: 2em;
+    color: var(--color-light);
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--color-accent);
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.game-card {
+    background-color: #1f1f1f;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(255, 71, 87, 0.3); /* Sombra con color de acento */
+}
+
+.game-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.game-card h4 {
+    color: var(--color-accent);
+    margin: 10px 0 5px;
+}
+
+.game-card p {
+    color: var(--color-text-muted);
+    font-size: 0.9em;
+}
+
+/* Footer */
+footer {
+    background-color: #1f1f1f;
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #333;
+}
+
+.social-links a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--color-accent);
+}
