@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GamerHub - Tu Centro de Juegos</title>
+    
+    <link rel="preload" as="style" href="styles.css">
     <link rel="stylesheet" href="styles.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="manifest" href="/site.webmanifest">
 </head>
 <body>
     <header>
@@ -22,62 +27,88 @@
         </nav>
     </header>
 
-    <main>
-        <section id="hero">
+    <main role="main">
+        <section id="hero" class="full-viewport-section" aria-labelledby="hero-title">
             <div class="hero-content">
-                <h2>Explora el Universo Gaming</h2> 
+                <h2 id="hero-title">Explora el Universo Gaming</h2> 
                 <p>Descubre las últimas novedades, reseñas y mucho más.</p>
-                <a href="#juegos" class="btn">Ver Juegos Destacados</a>
+                <a href="#juegos" class="btn btn-primary">Ver Juegos Destacados</a>
             </div>
         </section>
 
-        <section id="juegos" class="container">
-            <h3>🎮 Juegos Populares 🚀</h3>
+        <section id="juegos" class="container module-section" aria-labelledby="juegos-title">
+            <h3 id="juegos-title" class="section-title">🎮 Juegos Populares 🚀</h3>
             <div class="game-grid">
                 <article class="game-card">
                     <figure>
-                        <img src="placeholder_game_1.jpg" alt="Portada del juego Cyberpunk Runner">
+                        <img src="placeholder_game_1.jpg" alt="Portada del juego Cyberpunk Runner" loading="lazy">
                         <figcaption>
                             <h4>Cyberpunk Runner</h4>
-                            <p>Acción, RPG</p>
+                            <p class="game-genre">Acción, RPG</p>
+                            <a href="#" class="btn btn-secondary btn-small">Ver Detalles</a>
                         </figcaption>
-                    </figure> 
+                    </figure>
                 </article>
 
                 <article class="game-card">
                     <figure>
-                        <img src="placeholder_game_2.jpg" alt="Portada del juego Fantasy Quest">
+                        <img src="placeholder_game_2.jpg" alt="Portada del juego Fantasy Quest" loading="lazy">
                         <figcaption>
                             <h4>Fantasy Quest</h4>
-                            <p>Aventura, Estrategia</p>
+                            <p class="game-genre">Aventura, Estrategia</p>
+                            <a href="#" class="btn btn-secondary btn-small">Ver Detalles</a>
                         </figcaption>
                     </figure>
                 </article>
 
                 <article class="game-card">
                     <figure>
-                        <img src="placeholder_game_3.jpg" alt="Portada del juego Speed Racer X">
+                        <img src="placeholder_game_3.jpg" alt="Portada del juego Speed Racer X" loading="lazy">
                         <figcaption>
                             <h4>Speed Racer X</h4>
-                            <p>Carreras, Simulación</p>
+                            <p class="game-genre">Carreras, Simulación</p>
+                            <a href="#" class="btn btn-secondary btn-small">Ver Detalles</a>
                         </figcaption>
                     </figure>
                 </article>
-            </div>        
+
+                <article class="game-card">
+                    <figure>
+                        <img src="placeholder_game_4.jpg" alt="Portada del juego Strategy Master" loading="lazy">
+                        <figcaption>
+                            <h4>Strategy Master</h4>
+                            <p class="game-genre">Estrategia, Simulación</p>
+                            <a href="#" class="btn btn-secondary btn-small">Ver Detalles</a>
+                        </figcaption>
+                    </figure>
+                </article>
+
+            </div>      
         </section>
 
-        <section id="noticias" class="container">
-            <h3>📰 Últimas Noticias</h3>
-            <p>Próximamente: Reseña de "World of Valor" y entrevista al equipo de desarrollo.</p>
+        <section id="noticias" class="container module-section module-padded" aria-labelledby="noticias-title">
+            <h3 id="noticias-title" class="section-title">📰 Últimas Noticias</h3>
+            <article class="news-item">
+                 <p class="lead-text">Próximamente: Reseña de "World of Valor" y entrevista al equipo de desarrollo.</p>
+                 <a href="#" class="text-link">Leer más</a>
+            </article>
         </section>
+        
+        <div id="scroll-to-top" role="button" aria-label="Volver al inicio de la página" title="Volver al inicio">▲</div>
+
     </main>
 
     <footer id="pie-de-pagina">
-        <p>&copy; <time datetime="2025">2025</time> GamerHub. Todos los derechos reservados.</p>
-        <div class="social-links">
-            <a href="#" aria-label="Síguenos en Twitter">Twitter</a> | 
-            <a href="#" aria-label="Únete a nuestro Discord">Discord</a>
+        <div class="footer-content container">
+            <p>&copy; <time datetime="2025">2025</time> GamerHub. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Síguenos en Twitter" class="social-icon social-twitter">Twitter</a> | 
+                <a href="#" aria-label="Únete a nuestro Discord" class="social-icon social-discord">Discord</a>
+            </div>
         </div>
     </footer>
+    <script>
+        // Aquí iría el JS para la funcionalidad de scroll y lazy loading 
+    </script>
 </body>
 </html>
