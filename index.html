@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GamerHub - Tu Centro de Juegos</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <nav>
+        <nav aria-label="Navegación principal del sitio">
             <h1>GamerHub</h1>
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
@@ -23,7 +25,7 @@
     <main>
         <section id="hero">
             <div class="hero-content">
-                <h2>Explora el Universo Gaming</h2>
+                <h2>Explora el Universo Gaming</h2> 
                 <p>Descubre las últimas novedades, reseñas y mucho más.</p>
                 <a href="#juegos" class="btn">Ver Juegos Destacados</a>
             </div>
@@ -32,38 +34,49 @@
         <section id="juegos" class="container">
             <h3>🎮 Juegos Populares 🚀</h3>
             <div class="game-grid">
-                <figure>
                 <article class="game-card">
-                    <img src="placeholder_game_1.jpg" alt="Imagen del Juego 1">
-                    <figcaption>
-                    <h4>Cyberpunk Runner</h4>
-                    <p>Acción, RPG</p>
+                    <figure>
+                        <img src="placeholder_game_1.jpg" alt="Portada del juego Cyberpunk Runner">
+                        <figcaption>
+                            <h4>Cyberpunk Runner</h4>
+                            <p>Acción, RPG</p>
+                        </figcaption>
+                    </figure> 
                 </article>
-                </figure> 
-            </figcaption> 
-                <article  class="game-card">
-                    <img src="placeholder_game_2.jpg" alt="Imagen del Juego 2">
-                    <h4>Fantasy Quest</h4>
-                    <p>Aventura, Estrategia</p>
-                </article>
+
                 <article class="game-card">
-                    <img src="placeholder_game_3.jpg" alt="Imagen del Juego 3">
-                    <h4>Speed Racer X</h4>
-                    <p>Carreras, Simulación</p>
+                    <figure>
+                        <img src="placeholder_game_2.jpg" alt="Portada del juego Fantasy Quest">
+                        <figcaption>
+                            <h4>Fantasy Quest</h4>
+                            <p>Aventura, Estrategia</p>
+                        </figcaption>
+                    </figure>
                 </article>
-                </div>        
+
+                <article class="game-card">
+                    <figure>
+                        <img src="placeholder_game_3.jpg" alt="Portada del juego Speed Racer X">
+                        <figcaption>
+                            <h4>Speed Racer X</h4>
+                            <p>Carreras, Simulación</p>
+                        </figcaption>
+                    </figure>
+                </article>
+            </div>        
         </section>
-        
+
         <section id="noticias" class="container">
             <h3>📰 Últimas Noticias</h3>
             <p>Próximamente: Reseña de "World of Valor" y entrevista al equipo de desarrollo.</p>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 GamerHub. Todos los derechos reservados.</p>
+    <footer id="pie-de-pagina">
+        <p>&copy; <time datetime="2025">2025</time> GamerHub. Todos los derechos reservados.</p>
         <div class="social-links">
-            <a href="#">Twitter</a> | <a href="#">Discord</a>
+            <a href="#" aria-label="Síguenos en Twitter">Twitter</a> | 
+            <a href="#" aria-label="Únete a nuestro Discord">Discord</a>
         </div>
     </footer>
 </body>
