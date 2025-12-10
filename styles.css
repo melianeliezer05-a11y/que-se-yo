@@ -1,20 +1,37 @@
-/* Variables de Color y Layout Centralizado */
+/* =======================================
+ * 1. CONFIGURACIÓN GLOBAL & VARIABLES CSS
+ * ======================================= */
+
 :root {
+    /* Colores */
     --color-dark: #121212;
-    --color-dark-surface: #1f1f1f; /* Nueva variable para superficies oscuras */
-    --color-accent: #ff4757; /* Rojo vibrante */
-    --color-accent-hover: #ff6b81; /* Variación del acento para hover */
+    --color-dark-surface: #1f1f1f;
+    --color-accent: #ff4757; /* Rojo vibrante principal */
+    --color-accent-hover: #ff6b81; 
     --color-light: #f5f6fa;
     --color-text-muted: #aaa;
-    --layout-max-width: 80%; /* Ancho máximo en escritorio */
-    --transition-speed: 0.3s; /* Centraliza la velocidad de transición */
+    
+    /* Layout */
+    --layout-max-width: 85%;
+    --spacing-unit: 1rem; /* 16px */
+    
+    /* Efectos & Tipografía */
+    --transition-speed: 0.3s;
+    --shadow-default: 0 4px 8px rgba(0, 0, 0, 0.5);
+    --shadow-accent: 0 8px 16px rgba(255, 71, 87, 0.4);
 }
 
-/* Base y Box Model (CRÍTICO) */
+/* =======================================
+ * 2. RESET Y TIPOGRAFÍA BASE (BOX-MODEL)
+ * ======================================= */
+
 *, *::before, *::after {
-    /* 1. Reset principal del Box Model */
+    /* CRÍTICO: Box-sizing para layouts predecibles */
     box-sizing: border-box; 
-    /* Por qué importa: Garantiza que el relleno (padding) y el borde (border) no afecten el ancho (width) final. */
+}
+
+html {
+    scroll-behavior: smooth; /* Mejora UX al hacer clic en anclas */
 }
 
 body {
@@ -24,23 +41,31 @@ body {
     background-color: var(--color-dark);
     color: var(--color-light);
     line-height: 1.6;
-    min-height: 100vh; /* Asegura que el body ocupe toda la altura */
+    min-height: 100vh;
 }
 
-/* 2. Layouts principales */
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color-light);
+    line-height: 1.2;
+}
+
 .container {
     width: var(--layout-max-width);
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 2 * var(--spacing-unit) 0;
 }
 
-/* Header/Navegación */
+/* =======================================
+ * 3. MÓDULO: NAVEGACIÓN & HEADER
+ * ======================================= */
+
 header {
     background-color: var(--color-dark-surface);
-    padding: 10px 0;
     position: sticky;
     top: 0;
     z-index: 100;
+    box-shadow: var(--shadow-default); /* Sombra para destacar la sticky nav */
 }
 
 nav {
@@ -49,13 +74,13 @@ nav {
     align-items: center;
     width: var(--layout-max-width);
     margin: 0 auto;
+    padding: 0.5rem 0;
 }
 
 nav h1 {
-    font-family: 'Montserrat', sans-serif;
     color: var(--color-accent);
     margin: 0;
-    font-size: 1.8em; /* Ajuste para consistencia */
+    font-size: 1.8em;
 }
 
 nav ul {
@@ -68,19 +93,23 @@ nav ul {
 nav a {
     color: var(--color-light);
     text-decoration: none;
-    font-weight: bold;
-    transition: color var(--transition-speed); /* Uso de variable */
+    font-weight: 500;
+    transition: color var(--transition-speed);
+    padding: 0.5rem 0;
 }
 
 nav a:hover {
     color: var(--color-accent);
+    border-bottom: 2px solid var(--color-accent);
 }
 
-/* Sección Héroe */
+/* =======================================
+ * 4. MÓDULO: HERO Y BOTONES
+ * ======================================= */
+
 #hero {
-    /* Mantenido el background original */
     background: url('hero_background.jpg') no-repeat center center/cover;
-    height: 60vh;
+    height: 70vh; /* Aumentar ligeramente para impacto visual */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,160 +118,218 @@ nav a:hover {
 }
 
 .hero-content {
-    /* Uso de un color más suave para el fondo, ya que el fondo es negro */
-    background-color: rgba(0, 0, 0, 0.8); 
+    background-color: rgba(0, 0, 0, 0.85); /* Aumentar opacidad para contraste */
     padding: 40px;
     border-radius: 10px;
+    box-shadow: var(--shadow-default);
 }
 
 #hero h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 3em; 
-    color: var(--color-light); /* Color de acento solo en h1, aquí lo aclaramos */
-    margin-bottom: 15px;
+    font-size: 3.5em;
+    color: var(--color-light);
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px var(--color-accent); /* Efecto gaming */
 }
 
-/* Clase de Botón Reutilizable */
+/* Base de botones (BEM-like Naming) */
 .btn {
     display: inline-block;
-    background-color: var(--color-accent);
-    color: var(--color-light);
-    padding: 12px 25px;
+    padding: 12px 28px;
     text-decoration: none;
     border-radius: 5px;
-    margin-top: 15px;
-    transition: background-color var(--transition-speed), transform 0.2s;
     font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: all var(--transition-speed);
 }
 
-.btn:hover {
-    background-color: var(--color-accent-hover);
-    transform: translateY(-2px);
-}
-
-/* Sección de Juegos (Estructura de Tarjeta Optimizada) */
-#juegos {
-    text-align: center;
-}
-
-#juegos h3 {
-    font-size: 2.2em;
+.btn-primary {
+    background-color: var(--color-accent);
     color: var(--color-light);
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--color-accent);
-    display: inline-block;
-    margin-bottom: 30px;
-    font-family: 'Montserrat', sans-serif;
+    border: 2px solid var(--color-accent);
 }
 
-/* 3. CSS Grid para Cuadrícula Adaptativa (Mantenido, es una Best Practice) */
+.btn-primary:hover {
+    background-color: var(--color-accent-hover);
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-accent);
+    border: 2px solid var(--color-accent);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-accent);
+    color: var(--color-light);
+}
+
+.btn-small {
+    padding: 8px 15px;
+    font-size: 0.9em;
+}
+
+
+/* =======================================
+ * 5. MÓDULO: TARJETAS DE JUEGOS (GRID)
+ * ======================================= */
+
+.section-title {
+    font-size: 2.2em;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--color-accent);
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+
 .game-grid {
-    /* auto-fit asegura que el navegador optimice el número de columnas */
+    /* CRÍTICO: CSS Grid para responsive layout sin media queries excesivas */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
     display: grid;
-    gap: 25px;
+    gap: 30px; /* Aumentar el espacio entre tarjetas */
 }
 
 .game-card {
     background-color: var(--color-dark-surface);
-    padding: 0; /* Relleno solo dentro de figure o figcaption si es necesario */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    box-shadow: var(--shadow-default);
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-    overflow: hidden; /* Asegura que la imagen no se desborde del borde redondeado */
+    overflow: hidden; 
 }
 
 .game-card:hover {
-    transform: translateY(-8px); /* Aumentado el desplazamiento para un efecto más claro */
-    box-shadow: 0 12px 24px rgba(255, 71, 87, 0.4); /* Aumentada la sombra para el hover */
+    transform: scale(1.03) translateY(-5px); /* Combinar scale y translate para un efecto más dinámico */
+    box-shadow: 0 15px 30px rgba(255, 71, 87, 0.5); 
 }
 
-/* Selectores basados en la estructura HTML semántica (figure/figcaption) */
 .game-card figure {
     margin: 0; 
-    padding: 15px; /* Restaurar el padding del contenido aquí */
+    padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .game-card img {
-    /* width: 100% en el contenedor FIGURE para asegurar que siempre use el 100% del espacio */
     display: block;
     width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 10px;
+    /* Aspect ratio fijo para evitar saltos de layout al cargar (CLS) */
+    aspect-ratio: 16 / 9; 
+    object-fit: cover;
+}
+
+.game-card figcaption {
+    padding: 15px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Permite que las tarjetas sin botones tengan la misma altura base */
 }
 
 .game-card figcaption h4 {
     color: var(--color-accent);
-    margin: 10px 0 5px;
+    margin: 0 0 0.5rem;
+    font-size: 1.2em;
 }
 
-.game-card figcaption p {
+.game-genre {
     color: var(--color-text-muted);
-    font-size: 0.95em;
+    font-size: 0.9em;
+    margin-bottom: 1rem;
 }
 
-/* Footer */
+/* =======================================
+ * 6. MÓDULO: FOOTER Y UTILIDADES (UX)
+ * ======================================= */
+
 footer {
     background-color: var(--color-dark-surface);
-    text-align: center;
     padding: 20px 0;
-    border-top: 1px solid #333;
+    border-top: 2px solid var(--color-accent);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .social-links a {
     color: var(--color-text-muted);
     text-decoration: none;
     transition: color var(--transition-speed);
+    margin-left: 10px;
 }
 
 .social-links a:hover {
     color: var(--color-accent);
 }
 
-/* Media Queries para Responsive Design (Mobile-First) */
+#scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--color-accent);
+    color: var(--color-light);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    cursor: pointer;
+    box-shadow: var(--shadow-default);
+    z-index: 1000;
+    opacity: 0; /* Oculto por defecto, se maneja con JS */
+    transition: opacity var(--transition-speed);
+}
+
+/* =======================================
+ * 7. MEDIA QUERIES (ADAPTACIÓN MÓVIL)
+ * ======================================= */
+
 @media (max-width: 992px) {
     :root {
-        --layout-max-width: 90%; /* Aumentar ancho en tabletas */
-    }
-    
-    .hero-content {
-        padding: 30px;
+        --layout-max-width: 90%; 
     }
     
     #hero h2 {
-        font-size: 2.5em;
+        font-size: 3em;
     }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 600px) {
     :root {
-        --layout-max-width: 95%; /* Máximo ancho en móviles pequeños */
+        --layout-max-width: 95%; 
     }
 
+    /* Navegación vertical para móvil */
     nav {
-        /* Pasar a disposición vertical en móviles */
         flex-direction: column; 
-        gap: 10px;
-        text-align: center;
+        gap: 15px;
     }
 
     nav ul {
-        width: 100%;
         justify-content: space-around;
-        gap: 0;
+        width: 100%;
+        gap: 10px;
     }
     
-    #hero h2 {
-        font-size: 2em;
+    #hero {
+        height: 50vh; 
     }
 
-    .hero-content {
-        padding: 20px;
+    #hero h2 {
+        font-size: 2.2em;
     }
     
-    .game-grid {
-        /* Aseguramos que la cuadrícula escale bien en pantallas estrechas */
-        grid-template-columns: 1fr;
+    .section-title {
+        font-size: 1.8em;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 10px;
     }
 }
